@@ -10,4 +10,11 @@ public class CabInvoiceService {
 		return Math.max(MAXMUM_FLARE, totalFare);
 	}
 
+	public double calculateFareForMultipleRides(Ride[] rides) {
+		double aggregateFare = 0;
+		for (Ride ride : rides) {
+			aggregateFare += calculatorFare(ride.distance, ride.time);
+		}
+		return aggregateFare;
+	}
 }
